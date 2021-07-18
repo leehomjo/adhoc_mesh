@@ -1,0 +1,63 @@
+body {
+	color: rgb(0, 51, 153); padding-top: 10px; padding-left: 10px; font-family: "ËÎÌו", "Times New Roman"; font-size: 75%; background-color: rgb(255, 255, 255);
+}
+td {
+	line-height: 18px; font-size: 12px; text-decoration: none;
+}
+input.button {
+	border: 1px solid rgb(24, 62, 173); height: 18px; color: rgb(0, 0, 0); line-height: normal; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; background-color: rgb(221, 221, 255);
+}
+input.text {
+	border: 1px solid rgb(24, 62, 173); height: 18px; color: rgb(0, 0, 0); line-height: normal; padding-right: 3px; padding-left: 3px; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal;
+}
+input.file {
+	padding: 0px; border: 1px solid rgb(24, 62, 173); height: 23px; color: rgb(0, 0, 0); line-height: normal; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal;
+}
+td.title {
+	height: 24px; color: rgb(255, 255, 255); font-size: 12px; background-color: rgb(102, 153, 255);
+}
+td.tail {
+	height: 25px; font-size: 12px;
+}
+td.hline {
+	height: 1px; color: rgb(255, 153, 51); background-color: rgb(255, 153, 51);
+}
+td.vline {
+	width: 1px; color: rgb(255, 153, 51); background-color: rgb(255, 153, 51);
+}
+.space {
+	margin-top: 10px; margin-bottom: 10px;
+}
+table {
+	background-color: rgb(245, 245, 245);
+}
+select.list {
+	border: 1px solid rgb(24, 62, 173); height: 18px; color: rgb(0, 0, 0); line-height: normal; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal;
+}
+input.buttonface {
+	border: 1px solid rgb(24, 62, 173); height: 18px; color: rgb(0, 0, 0); line-height: normal; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; background-color: rgb(221, 221, 255);
+}
+td.top {
+	line-height: 18px; font-size: 12px; text-decoration: none; vertical-align: top;
+}
+input.textspecial {
+	border: 1px solid rgb(24, 62, 173); height: 18px; color: rgb(0, 0, 0); line-height: normal; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal;
+}
+select[type='list']:disabled {
+	color: gray;
+}
+input[type='submit']:disabled {
+	color: gray;
+}
+input[type='buttonface']:disabled {
+	color: gray;
+}
+input[type='text']:disabled {
+	color: gray;
+}
+input[type='textspecial']:disabled {
+	color: gray;
+}
+input[type='button']:disabled {
+	color: gray;
+}

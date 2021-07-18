@@ -1,0 +1,163 @@
+{
+	"login_resp":	{
+		"jsonrpc":	"2.0",
+		"id":	73,
+		"result":	[0, {
+				"ubus_rpc_session":	"d7e6adcff82f3668aff2b38d1db04d61",
+				"data":	{
+					"username":	"root"
+				}
+			}]
+	},
+	"change_word_resp":	{
+		"jsonrpc":	"2.0",
+		"id":	75,
+		"result":	[0]
+	},
+	"get_wifi_status_resp":	{
+		"jsonrpc":	"2.0",
+		"id":	76,
+		"result":	[0, {
+				"disabled":	"0",
+				"channel":	"11",
+				"txpower":	"30",
+				"mode":	"ap",
+				"ssid":	"nexfi-mv",
+				"encryption":	"psk2",
+				"key":	"12345678",
+				"hidden":	"1"
+			}]
+	},
+	"set_wifi_para_resp":	{
+		"jsonrpc":	"2.0",
+		"id":	77,
+		"result":	[0]
+	},
+	"apply_wifi_para_resp":	{
+		"jsonrpc":	"2.0",
+		"id":	77,
+		"result":	[0]
+	},
+	"get_lan_status_resp":	{
+		"jsonrpc":	"2.0",
+		"id":	78,
+		"result":	[0, {
+				"uptime":	"1587",
+				"ipaddr":	"192.168.104.2",
+				"netmask":	"255.255.255.0",
+				"dhcp":	"0",
+				"start":	"1",
+				"limit":	"0"
+			}]
+	},
+	"set_lan_para_resp":	{
+		"jsonrpc":	"2.0",
+		"id":	79,
+		"result":	[0]
+	},
+	"apply_lan_para_resp":	{
+		"jsonrpc":	"2.0",
+		"id":	79,
+		"result":	[0]
+	},
+	"get_serial_status_resp":	{
+		"jsonrpc":	"2.0",
+		"id":	78,
+		"result":	[0, {
+				"e_uart":	{
+					"enable":	"1",
+					"dest_ip":	"192.168.104.2",
+					"dest_port":	"65000",
+					"local_port":	"65001",
+					"baudrate":	"115200"
+				},
+				"uart":	{
+					"enable":	"0",
+					"dest_ip":	"192.168.104.1",
+					"dest_port":	"65002",
+					"local_port":	"65003",
+					"baudrate":	"115200"
+				}
+			}]
+	},
+	"set_serial_para_resp":	{
+		"jsonrpc":	"2.0",
+		"id":	79,
+		"result":	[0]
+	},
+	"apply_serial_para_resp":	{
+		"jsonrpc":	"2.0",
+		"id":	79,
+		"result":	[2]
+	},
+	"get_sys_status_resp":	{
+		"jsonrpc":	"2.0",
+		"id":	80,
+		"result":	[0, {
+				"uptime":	1593,
+				"cpu":	"0.44",
+				"memory":	"0.52759",
+				"throughput":	"0",
+				"firmware":	"MV1.1.15",
+				"voltage":	"24.3031253814"
+			}]
+	},
+	"get_gps_resp":	{
+		"jsonrpc":	"2.0",
+		"id":	81,
+		"result":	[0, {
+				"time":	"",
+				"latitude":	" ",
+				"longitude":	" ",
+				"altitude":	"",
+				"speed":	"",
+				"date":	"",
+				"navacc":	""
+			}]
+	},
+	"get_connected_mesh_resp":	{
+		"jsonrpc":	"2.0",
+		"id":	83,
+		"result":	[0, {
+				"results":	[]
+			}]
+	},
+	"get_mesh_msg_resp":	{
+		"jsonrpc":	"2.0",
+		"id":	84,
+		"result":	[0, {
+				"vis":	[]
+			}]
+	},
+	"set_mesh_para_resp":	{
+		"jsonrpc":	"2.0",
+		"id":	75,
+		"result":	[0]
+	},
+	"apply_mesh_para_resp":	{
+		"jsonrpc":	"2.0",
+		"id":	75,
+		"result":	[0]
+	},
+	"get_mesh_status_resp":	{
+		"jsonrpc":	"2.0",
+		"id":	74,
+		"result":	[0, {
+				"disabled":	"0",
+				"channel":	"3",
+				"chanbw":	"5",
+				"txpower":	"3",
+				"distance":	"2000",
+				"setrate":	"-1",
+				"short_gi_20":	"0",
+				"mcast_rate":	"2000",
+				"mode":	"adhoc",
+				"encryption":	"none",
+				"key":	"",
+				"vlanid":	"61",
+				"nodeid":	"2",
+				"orig_interval":	"300",
+				"hop_penalty":	"10"
+			}]
+	}
+}

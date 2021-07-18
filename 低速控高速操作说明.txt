@@ -1,0 +1,28 @@
+1）启动zynq登陆
+root
+root
+2）加载脚本文件并启动主控
+cd /run/media/mmcblk1p2/wt_service
+./autorun.sh
+cd /mnt/wt_service/adhoc_lora_id1/libloragw
+./test_loragw_hal -a480.2 -b471 -t471.4 -p20 -s1 -i11
+
+
+注：
+1、zynq板id与文件夹命名有关，adhoc_lora_id1代表192.168.104.1对应的高速设备，则zynq本机ip为192.168.104.21。
+    以此类推，adhoc_lora_id2，zynq板本机ip应为192.168.104.22
+2、发送最后主控启动命令时，应先打开高速设备，并在网页端访问zynq板ip，192.168.104.21；
+3、在启动主控并能在串口控制台中读取到本机和低速组网设备内的高速组网参数后，在网页端界面中Adhoc设置向导界面中，设置高速组网参数，点击完成后即修改全局组网参数成功。
+
+
+
+＃＃＃＃＃将低速控高速的所有配置导入zynq的emmc的办法＃＃＃＃＃
+1、修改好高速设备IP对应的主控软件设置（修改adhoc_lora_id文件夹名及内部参数，内部参数的修改在"更改主控软件说明.odt"中有图文说明）和脚本文件autorun.sh中的IP设置后，将文件夹wt_service整个放入已经启动好的zynq中；
+2、登录zynq，账号密码root
+3、加载镜像，命令:mount /dev/mmcblk1p2 /mnt
+4、ubuntu电脑在wt_service文件夹目录下,scp -r wt_service root@192.168.101.1:/mnt
+5、获取启动脚本权限，输入命令:chmod +x autorun.sh
+6、获取cgi启动权限，先进入boa根目录: cd wt_service/00BoaIndexInstall/Install，然后输入命令:chmod +x boa
+7、步骤6/7获取权限仅需第一次时运行
+8、建议重启zynq后运行本说明1-8步骤
+＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃

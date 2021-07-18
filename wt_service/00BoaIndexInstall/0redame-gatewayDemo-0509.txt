@@ -1,0 +1,48 @@
+1. gatewaydemo
+
+
+1) import router 导入或修改路由表文件
+方式１：
+PC机ubuntu：scp /your_ubuntu_path/router root@192.168.1.100:/usr/lib　　通过以太网口导入　
+方式２：
+语音网关板控制台：vi /usr/lib/router  修改router编号1~6,  B1~B3呼出的电话号码; （i插入　，　esc退出编辑，:wq保存）
+
+2) load modules driver　加载语音hub驱动
+语音网关板控制台：
+cd /lib/modules/4.14.0-xilinx/extra
+modprobe miomodule.ko
+modprobe mymodule.ko
+
+3) run  gatewaydemo运行语音网关demo
+cd /usr/lib
+./gatewaydemo   运行demo
+
+
+
+
+
+
+
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+
+2. Voa Web　
+
+u_disk: 
+mount /dev/sda1 /mnt/
+
+cd /mnt/00BoaIndexInstall/Install
+cp -f boa /bin  (/bin/boa)
+
+cd etc
+cp -r boa /etc     (/etc/boa/boa.conf)
+cp -f mime.types /etc 
+
+cd.. 
+cd var  
+cp -r log_boa /var 
+cp -r www /var 
+
+cd /bin
+./boa
+ 
+PC 网页访问192.168.1.100

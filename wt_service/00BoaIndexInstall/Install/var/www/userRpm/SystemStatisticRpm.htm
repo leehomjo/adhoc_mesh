@@ -1,0 +1,262 @@
+<script type="text/javascript">
+var statList=new Array(
+0,0 );
+</script>
+<script type="text/javascript">
+var StatRulePara=new Array(
+0,
+1,
+0,
+1,
+0,
+7,
+0,0 );
+</script>
+<script type="text/javascript">
+var PageListPara=new Array(
+1,
+1,
+5,
+0,
+0,
+0,0 );
+</script>
+<META http-equiv="Pragma" content="no-cache">
+<META http-equiv="Expires" content="wed, 26 Feb 1997 08:21:57 GMT">
+<link href="../dynaform/css_main.css" rel="stylesheet" />
+<script src="../dynaform/common.js" type="text/javascript"></script>
+<script type="text/javascript"><!--
+if(window.parent == window){window.location.href="http://192.168.1.1";}
+function Click(){return false;}
+document.oncontextmenu=Click;
+function doPrev(){history.go(-1);}
+//--></script>
+
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<script language="JavaScript"><!-- 
+var bRefreshFlag = 1;
+
+function doChange()
+{
+    if(bRefreshFlag == 1)
+    {
+		document.sysStatic.submit();
+	}
+}
+
+function doFocus()
+{
+	bRefreshFlag = 0;
+}
+function doOnblur()
+{
+    bRefreshFlag=1;
+    doChange();
+}
+
+
+function changNumPerPage(){
+var _NumPerPage = document.forms[0].Num_per_page.value;
+location.href="SystemStatisticRpm.htm?NumPerPage="+_NumPerPage;
+}
+function goPage(){
+var nPage = document.forms[0].Goto_page.selectedIndex + 1;
+location.href="SystemStatisticRpm.htm?Page="+nPage;
+}
+
+function ResetAll()
+{
+	if(!confirm("你确定需要清空所有流量统计条目?")) return false;
+	location.href="SystemStatisticRpm.htm?resetAll=All&contType="+StatRulePara[1]+"&autoRefresh="+StatRulePara[2]+"&sortType="+StatRulePara[3];
+}
+function DeleteAll()
+{
+if(!confirm("你确定需要删除所有流量统计条目?"))
+	return false;
+location.href="SystemStatisticRpm.htm?deleteAll=All&contType="+StatRulePara[1]+"&autoRefresh="+StatRulePara[2]+"&sortType="+StatRulePara[3];
+}
+function doHelp()
+{
+    location.href="/help/SystemStatisticHelpRpm.htm";
+}
+//--></script>
+</HEAD>
+<body>
+<center><form name="sysStatic" action="SystemStatisticRpm.htm" enctype="multipart/form-data" method="get"  >
+<table width="640" border="0" cellspacing="0" cellpadding="0">
+<tr><td width="7" class="title"><img src="../userRpm/images/arc.gif" width="7" height="24"></td>
+<td width="633" align="left" valign="middle" class="title">流量统计</td>
+</tr><tr><td colspan="2">
+<table width="640" border="0" cellspacing="0" cellpadding="0">
+<tr><td class="vline" rowspan="15" width="1px"><br></td>
+<td width="638">
+<table width="620" border="0" align="center" cellpadding="0" cellspacing="0" class="space">
+<tr><td colspan="3">本页对路由器的数据流量和速率进行了统计(下载/上传)。</td></tr>
+<tr><td height="40" >&nbsp;&nbsp;当前流量统计状态： &nbsp;&nbsp;  </td> <td><b><DIV ID="statisticStatus">-</DIV></b></td>
+<td align="left"><input name="statOn" type="submit" class="button" value = "开启流量统计" style = "display:none" >
+<input name="statOff" type="submit" class="button" value = "关闭流量统计"  style = "display:none"></td></tr>
+<tr style="padding-bottom:5px;"><td width="204">&nbsp;&nbsp;列表显示流量类型：</td>
+<td width="137"><select name="contType" class="list" id="contType" onChange="doChange()" onblur = "doOnblur()" onFocus = "doFocus()">
+<option value="1">  总流量 </option>
+<option value="2"> TCP流量 </option>
+<option value="3"> UDP流量 </option>
+<option value="4"> ICMP流量 </option>
+</select></td>
+<td width="275"></td></tr>
+<tr style="padding-bottom:5px;"><td width="204">
+&nbsp; <select name="sortType" class="list" id="sortType" onChange="doChange()" onblur = "doOnblur()" onFocus = "doFocus()">
+<option value="1" Selected>按IP地址排序</option>
+<option value="2">按下载流量排序</option>
+<option value="3">按上传流量排序</option>
+<option value="4">按下载速率排序</option>
+<option value="5">按上传速率排序</option></select></td>
+<td width="137">自动刷新 <input type="checkbox" name="autoRefresh" value="2" onClick="doChange();"></td>
+<td width="275">
+	<input name="Refresh" type="submit" class="button" value="刷 新" />
+	<input name="resetAll" onclick="ResetAll()" type="button" style="margin-left:40px;" class="button" value="全部清空" />
+	<input name="deleteAll"onclick="DeleteAll()" type="button" class="button" value="全部删除" />
+</td></tr></table>
+<table width="617" border="1" align="center" style="table-layout:hidden" cellpadding="0" cellspacing="0" class="space">
+<tr style="height:35px;"><td align="center" style="width:155px">主机</td>
+<td align="center" style="width:90px">已下载流量</td>
+<td align="center" style="width:90px">已上传流量</td>
+<td align="center" style="width:90px">下载速度</td>
+<td align="center" style="width:90px">上传速度</td>
+<td align="center" style="width:100px">编辑</td></tr>
+<script type="text/javascript">
+if (StatRulePara[4] > 0)	
+{
+	var row = 0;
+	var tmp = 0;
+	var string = 0;
+	var oneKB = 1024;
+	var oneMB = oneKB*oneKB;
+	var oneGB = oneKB*oneMB;
+	for(var i = 0; i < StatRulePara[4]; i++)	
+	{
+		row = i * StatRulePara[5];
+		document.write('<tr align="center"><TD >' + statList[row+1] + '<br>'+statList[row+2]+'</td>');
+		
+		if (statList[row+3] < oneMB)
+		{
+			tmp = statList[row+3]/oneKB;
+			string = "KB";
+		}
+		else if(statList[row+3] < oneGB)
+		{
+			tmp = statList[row+3]/oneMB;
+			string = "MB";
+		}
+		else
+		{
+			tmp = statList[row+3]/oneGB;
+			string = "GB";	
+		}
+		document.write('<td >' + tmp.toFixed(2)+ string+'</td>');
+		
+		if (statList[row+4] < oneMB)
+		{
+			tmp = statList[row+4]/oneKB;
+			string = "KB";
+		}
+		else if(statList[row+4] < oneGB)
+		{
+			tmp = statList[row+4]/oneMB;
+			string = "MB";
+		}
+		else
+		{
+			tmp = statList[row+4]/oneGB;
+			string = "GB";	
+		}
+		document.write('<td >' + tmp.toFixed(2)+ string+'</td>');
+		
+		if (statList[row+5] < oneMB)
+		{
+			tmp = statList[row+5]/oneKB;
+			string = "KB/s";
+		}
+		else if(statList[row+5] < oneGB)
+		{
+			tmp = statList[row+5]/oneMB;
+			string = "MB/s";
+		}
+		else
+		{
+			tmp = statList[row+5]/oneGB;
+			string = "GB/s";	
+		}
+		document.write('<td >' + tmp.toFixed(2)+ string+'</td>');
+		
+		
+		if (statList[row+6] < oneMB)
+		{
+			tmp = statList[row+6]/oneKB;
+			string = "KB/s";
+		}
+		else if(statList[row+6] < oneGB)
+		{
+			tmp = statList[row+6]/oneMB;
+			string = "MB/s";
+		}
+		else
+		{
+			tmp = statList[row+6]/oneGB;
+			string = "GB/s";	
+		}
+		document.write('<td >' + tmp.toFixed(2)+ string+'</td>');
+		document.write('<td class=Listm><a href=\"SystemStatisticRpm.htm?resetOne=' + statList[row] + '&contType='+StatRulePara[1]+'&autoRefresh='+StatRulePara[2]+'&sortType='+StatRulePara[3]+'&Num_per_page='+PageListPara[2] + "&Goto_page=" + PageListPara[1]+'\">清空</a>'+'&nbsp;<a href=\"SystemStatisticRpm.htm?deleteOne='+ statList[row] + '&contType='+StatRulePara[1]+'&autoRefresh='+StatRulePara[2]+'&sortType='+StatRulePara[3]+'&Num_per_page='+PageListPara[2] + "&Goto_page=" + PageListPara[1]+'\">删除</a></td></tr>');
+	}
+}
+else
+{
+	document.write('<tr><td colspan=9 align=center height=30>当前统计数据为空</td></tr>');
+}
+</script>
+</table>
+</td><td class="vline" rowspan="15" width="1px"><br></td></tr>
+<tr><td class="hline" width="638"><img src="../userRpm/images/empty.gif" width="1" height="1"></td></tr>
+<tr><td height="30" class="tail" width="638"><div align="left">&nbsp;&nbsp;
+每页显示 <SELECT onChange="doChange()" onblur = "doOnblur()" onFocus = "doFocus()" name="Num_per_page" class="list">
+<OPTION value="5">5</option>
+<OPTION value="10">10</option>
+<OPTION value="20">20</option>
+<OPTION value="50">50</option>
+<OPTION value="100">100</OPTION>
+</SELECT> 行&nbsp;
+<input name="PrevPage" type="submit" class="button"  value="上一页">&nbsp;
+<input name="NextPage" type="submit" class="button"  value="下一页">&nbsp;
+当前第 <SELECT onChange="doChange()" onblur = "doOnblur()" onFocus = "doFocus()" name="Goto_page" class="list">
+<script language="JavaScript">for (i=1;i<=PageListPara[0];i++){document.write('<option value="'+i+'">'+i+'</option>');
+}
+</script>
+</SELECT> 页&nbsp;
+<input name="Help" type="button" class="button" id="Help" onClick="doHelp();" value="帮 助"></div>
+</td></tr><tr><td class="hline" width="638"><img src="../userRpm/images/empty.gif" width="1" height="1"></td>
+</tr></table></td></tr></table></form>
+</center></BODY><head><meta http-equiv="pragma" content="no-cache"></head></HTML>
+<script language="JavaScript">
+document.getElementById("statisticStatus").innerHTML = (StatRulePara[0] == 1)?"已开启":"已关闭";
+if(StatRulePara[0] == 0)
+{
+	document.forms[0].statOn.style.display = 'block';
+}
+else
+{
+	document.forms[0].statOff.style.display = 'block';
+}
+document.forms[0].contType.value =StatRulePara[1];
+document.forms[0].autoRefresh.checked = StatRulePara[2];
+document.forms[0].autoRefresh.disabled =(StatRulePara[0] == 1)?false:true;
+document.forms[0].sortType.value =StatRulePara[3];
+//added by ZQQ ,08.04.14
+document.forms[0].Num_per_page.value = PageListPara[2];
+document.forms[0].Goto_page.value = PageListPara[1];
+document.forms[0].PrevPage.disabled = PageListPara[1]<2?1:0;
+document.forms[0].NextPage.disabled = PageListPara[4];
+if (StatRulePara[2] && StatRulePara[0] && bRefreshFlag == 1)
+{   
+ 
+	window.setTimeout("doChange()",10000);
+}
+</script>

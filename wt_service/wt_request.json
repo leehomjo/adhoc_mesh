@@ -1,0 +1,163 @@
+{
+	"login":	{
+		"jsonrpc":	"2.0",
+		"id":	73,
+		"method":	"call",
+		"params":	["00000000000000000000000000000000", "session", "login", {
+				"username":	"root",
+				"password":	"wt"
+			}]
+	},
+	"change_word":	{
+		"jsonrpc":	"2.0",
+		"id":	75,
+		"method":	"call",
+		"params":	["f00b3e0b47a722f66b14c006aaf756d1", "nexfi.system", "set", {
+				"passwd":	"wt"
+			}]
+	},
+	"get_mesh_status":	{
+		"jsonrpc":	"2.0",
+		"id":	74,
+		"method":	"call",
+		"params":	["0242c6d96e81a94fb8fd602ddeefaa8d", "nexfi.mesh", "status", {
+			}]
+	},
+	"set_mesh_para":	{
+		"jsonrpc":	"2.0",
+		"id":	75,
+		"method":	"call",
+		"params":	["f00b3e0b47a722f66b14c006aaf756d1", "nexfi.mesh", "set", {
+				"configs":	{
+					"channel":	"6",
+					"chanbw":	"5",
+					"txpower":	"3"
+				}
+			}]
+	},
+	"apply_mesh_para":	{
+		"jsonrpc":	"2.0",
+		"id":	75,
+		"method":	"call",
+		"params":	["f00b3e0b47a722f66b14c006aaf756d1", "nexfi.mesh", "set", {
+				"configs":	{
+					"apply":	"1"
+				}
+			}]
+	},
+	"get_wifi_status":	{
+		"jsonrpc":	"2.0",
+		"id":	76,
+		"method":	"call",
+		"params":	["f00b3e0b47a722f66b14c006aaf756d1", "nexfi.wifi", "status", {
+			}]
+	},
+	"set_wifi_para":	{
+		"jsonrpc":	"2.0",
+		"id":	77,
+		"method":	"call",
+		"params":	["f00b3e0b47a722f66b14c006aaf756d1", "nexfi.wifi", "set", {
+				"configs":	{
+					"channel":	"11",
+					"hidden":	"1"
+				}
+			}]
+	},
+	"apply_wifi_para":	{
+		"jsonrpc":	"2.0",
+		"id":	77,
+		"method":	"call",
+		"params":	["f00b3e0b47a722f66b14c006aaf756d1", "nexfi.wifi", "set", {
+				"configs":	{
+					"apply":	"1"
+				}
+			}]
+	},
+	"get_lan_status":	{
+		"jsonrpc":	"2.0",
+		"id":	78,
+		"method":	"call",
+		"params":	["f00b3e0b47a722f66b14c006aaf756d1", "nexfi.lan", "status", {
+			}]
+	},
+	"set_lan_para":	{
+		"jsonrpc":	"2.0",
+		"id":	79,
+		"method":	"call",
+		"params":	["f00b3e0b47a722f66b14c006aaf756d1", "nexfi.lan", "set", {
+				"configs":	{
+					"address":	"192.168.104.2"
+				}
+			}]
+	},
+	"apply_lan_para":	{
+		"jsonrpc":	"2.0",
+		"id":	79,
+		"method":	"call",
+		"params":	["f00b3e0b47a722f66b14c006aaf756d1", "nexfi.lan", "set", {
+				"configs":	{
+					"apply":	"1"
+				}
+			}]
+	},
+	"get_serial_status":	{
+		"jsonrpc":	"2.0",
+		"id":	78,
+		"method":	"call",
+		"params":	["f00b3e0b47a722f66b14c006aaf756d1", "nexfi.serial", "status", {
+			}]
+	},
+	"set_serial_para":	{
+		"jsonrpc":	"2.0",
+		"id":	79,
+		"method":	"call",
+		"params":	["f00b3e0b47a722f66b14c006aaf756d1", "nexfi.serial", "set", {
+				"configs":	{
+					"enable":	"1",
+					"dest_ip":	"192.168.104.2",
+					"baudrate":	"115200",
+					"serial_name":	"e_uart"
+				}
+			}]
+	},
+	"apply_serial_para":	{
+		"jsonrpc":	"2.0",
+		"id":	79,
+		"method":	"call",
+		"params":	["f00b3e0b47a722f66b14c006aaf756d1", "nexfi.serial", "set", {
+				"configs":	{
+					"apply":	"1"
+				}
+			}]
+	},
+	"get_sys_status":	{
+		"jsonrpc":	"2.0",
+		"id":	80,
+		"method":	"call",
+		"params":	["f00b3e0b47a722f66b14c006aaf756d1", "nexfi.system", "status", {
+			}]
+	},
+	"get_gps":	{
+		"jsonrpc":	"2.0",
+		"id":	81,
+		"method":	"call",
+		"params":	["f00b3e0b47a722f66b14c006aaf756d1", "nexfi.gps", "status", {
+				"gpsOrbd":	"gps"
+			}]
+	},
+	"get_connected_mesh":	{
+		"jsonrpc":	"2.0",
+		"id":	83,
+		"method":	"call",
+		"params":	["f00b3e0b47a722f66b14c006aaf756d1", "nexfi.mesh", "sites", {
+				"device":	"adhoc0"
+			}]
+	},
+	"get_mesh_msg":	{
+		"jsonrpc":	"2.0",
+		"id":	84,
+		"method":	"call",
+		"params":	["f00b3e0b47a722f66b14c006aaf756d1", "nexfi.mesh", "vis", {
+			}]
+	}
+}

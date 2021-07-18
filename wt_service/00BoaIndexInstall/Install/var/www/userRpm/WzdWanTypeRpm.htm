@@ -1,0 +1,146 @@
+<script type="text/javascript">
+var wzdWanTypeInf=new Array(
+0,
+0,
+0,0 );
+</script>
+<META http-equiv="Pragma" content="no-cache">
+<META http-equiv="Expires" content="wed, 26 Feb 1997 08:21:57 GMT">
+<link href="../dynaform/css_main.css" rel="stylesheet" />
+<script src="../dynaform/common.js" type="text/javascript"></script>
+<script type="text/javascript"><!--
+if(window.parent == window){window.location.href="http://192.168.1.2";}
+function Click(){return false;}
+document.oncontextmenu=Click;
+function doPrev(){history.go(-1);}
+//--></script>
+
+<SCRIPT language="javascript" src="../dynaform/custom.js" type="text/javascript"></SCRIPT>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+</head>
+<script language="JavaScript"><!--
+function Click()
+{
+	window.event.returnValue=false;
+}
+document.oncontextmenu=Click;
+function exitStep()
+{
+	 window.location.href="../userRpm/StatusRpm.htm";
+}
+function preStep()
+{
+	 // alert("wzdWanTypeInf[2]="+wzdWanTypeInf[2]);
+	  window.location.href="../userRpm/WzdStartRpm.htm";
+}
+//--></script>
+<body>
+ <center>
+  <form action="/cgi-bin/linux-cgiv.cgi" enctype="multipart/form-data" method="get" >
+
+  <table width="502" border="0" cellspacing="0" cellpadding="0">
+   <tr> 
+     <td width="7" class="title"><img src="../userRpm/images/arc.gif" width="7" height="24"></td>
+     <td width="495" align="left" valign="middle" class="title">网优设置向导-AdHoc组网</td>
+   </tr>
+   <tr>
+      <td colspan="2">
+         <table width="502" border="0" cellspacing="0" cellpadding="0"> 
+				 <tr>
+					  <td width="1" rowspan="15" class="vline"><br> </td>
+					  <td width="500"> 
+						 <table width="430" border="0" align="center" cellpadding="0" cellspacing="0" class="space">
+							 <tr><td>本向导提供AdHoc组网参数优化方式。</td></tr>
+						 </table>
+						 <table width="430" border="0" align="center" cellpadding="0" cellspacing="0" class="space">
+							<tr><td class=clk><input name="wan" type="radio" value="0">优化频点信道 </td></tr>
+							<tr><td class=clk><input name="wan" type="radio" value="1">优化通信带宽</td></tr>
+							<tr><td class=clk><input name="wan" type="radio" value="2">优化发射功率</td></tr>
+							<tr><td class=clk><input name="wan" type="radio" value="3">三种参数一键优化</td></tr>
+					<!-- <tr><td class=clk><input name="wan" type="radio" value="5">L2TP（第二层隧道协议接入）</td></tr>
+					<tr><td class=clk><input name="wan" type="radio" value="6">PPTP（点对点隧道协议接入）</td></tr> -->
+						</table>
+					  </td>
+					  <td width="1" rowspan="15" class="vline"><br> </td>
+				 </tr>
+
+				 <tr> 
+				   <td colspan="1" class="hline"><img src="../userRpm/images/empty.gif" width="1" height="1"></td>
+				 </tr>
+
+				 <tr>
+				     <td colspan="1"> 
+					          <table width="430" border="0" align="center" cellpadding="0" cellspacing="0" class="space">
+						        <tr>  
+                                  <td valign="middle"><span style="vertical-align: middle"><font size="2">频点信道:  <input name="nodNum" size="5"></font></span></td>  
+						        </tr> 
+					          </table>
+				     </td>
+				 <tr>
+					 <td colspan="1" class="hline"><img src="../userRpm/images/empty.gif" width="1" height="1"></td>
+				 </tr>
+
+				 <tr>
+				     <td colspan="1">
+					          
+					          <table width="430" border="0" align="center" cellpadding="0" cellspacing="0" class="space">
+						        <tr>  
+                                  <td valign="middle"><span style="vertical-align: middle"><font size="2">通信带宽:  <input name="hopNum" size="5"></font></span></td>  
+						        </tr> 
+					          </table>
+				     </td> 
+			     </tr>
+                 <tr>
+					 <td colspan="1" class="hline"><img src="../userRpm/images/empty.gif" width="1" height="1"></td>
+				 </tr> 
+
+                  <tr>
+				     <td colspan="1">
+					          
+					          <table width="430" border="0" align="center" cellpadding="0" cellspacing="0" class="space">
+						        <tr>  
+                                  <td valign="middle"><span style="vertical-align: middle"><font size="2">发射功率:  <input name="retNum" size="5"></font></span></td>  
+						        </tr> 
+					          </table>
+				     </td> 
+			     </tr>
+                 <tr>
+					 <td colspan="1" class="hline"><img src="../userRpm/images/empty.gif" width="1" height="1"></td>
+				 </tr> 
+
+
+                 
+				 <tr>
+					 <td height="30" class="tail" align="right">&nbsp;  
+										 <input type="submit" class="button"  value="确定">
+										 <input name="Esc" type="button" class="button" value="取消" onclick="javascript:preStep()">&nbsp; 
+										 <input name="Exit" type="button" class="button" value="退出" onclick="javascript:exitStep()">&nbsp;  
+				     </td>
+				 </tr>
+
+				 <tr>
+					 <td colspan="1" class="hline"><img src="../userRpm/images/empty.gif" width="1" height="1"></td>
+				 </tr>
+
+         </table>
+      </td>
+   </tr> 
+  </table>
+  </form>
+ </center>
+</body>
+<head><meta http-equiv="pragma" content="no-cache"></head></html>
+<script language="JavaScript">
+var wan_detect = 1;
+if (wan_detect)
+{
+document.forms[0].wan[0].checked = true;
+}
+else
+{
+document.forms[0].wan[0].checked = (wzdWanTypeInf[0]==2);
+document.forms[0].wan[1].checked = (wzdWanTypeInf[0]==0);
+document.forms[0].wan[2].checked = (wzdWanTypeInf[0]==1);
+}
+document.forms[0].ClientId.value = wzdWanTypeInf[1];
+</script>

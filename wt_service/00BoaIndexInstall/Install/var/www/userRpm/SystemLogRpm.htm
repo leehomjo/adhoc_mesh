@@ -1,0 +1,138 @@
+<script type="text/javascript">
+var logList=new Array(
+"   0days, 00:00:04, SystemLog - Mail Settings have not been configured.<br>",
+"   0days, 00:00:04, LAN: mirror0 set ip c0a80101 mask ffffff00",
+"   0days, 00:00:05, System start ok.",
+"   0days, 00:00:05, DHCPC: eth1 send DISCOVER with unicast flag 0",
+"   0days, 00:00:05, DHCPC: eth1 recv OFFER from server ac130302 with ip ac13030e",
+"   0days, 00:00:06, DHCPC: Send REQUEST to server eth1 with request ip 172.19.3.2",
+"   0days, 00:00:06, DHCPC: eth1 recv ACK from server ac130302 with ip ac13030e lease time 86400",
+"   0days, 00:00:06, DHCPC: eth1 set ip ac13030e mask ffffff00 gateway ac130301",
+"   0days, 00:02:24, DHCPS: Send OFFER with ip 192.168.1.100",
+0,0 );
+</script>
+<script type="text/javascript">
+var logExpList=new Array(
+"Exception:|2006-01-01  9:02:05|<br>td_id           = 807EB3D0<br>td_name         = tNetTask<br>td_sp           = 807EAD18<br>td_pStackBase   = 807EB3D0<br>td_stackCurrent = 6B8<br>td_pc           = 80027974<br>td_ra           = 80027f68<br>",
+"Exception:|2006-01-01  8:35:30|<br>td_id           = 807EB3D0<br>td_name         = tNetTask<br>td_sp           = 807EA9F8<br>td_pStackBase   = 807EB3D0<br>td_stackCurrent = 9D8<br>td_pc           = 80067628<br>td_ra           = 800631a4<br>",
+"Exception:|2006-01-01  8:19:22|<br>td_id           = 807EB3D0<br>td_name         = tNetTask<br>td_sp           = 807EA9F8<br>td_pStackBase   = 807EB3D0<br>td_stackCurrent = 9D8<br>td_pc           = 80067628<br>td_ra           = 800631a4<br>",
+"Exception:|2006-01-01  8:11:10|<br>td_id           = 807EB3D0<br>td_name         = tNetTask<br>td_sp           = 807EA9F8<br>td_pStackBase   = 807EB3D0<br>td_stackCurrent = 9D8<br>td_pc           = 80067628<br>td_ra           = 800631a4<br>",
+0,0 );
+</script>
+<script type="text/javascript">
+var isAp=new Array(
+0,
+0,0 );
+</script>
+<script type="text/javascript">
+var syslogWebConf=new Array(
+0,
+0,0 );
+</script>
+<script type="text/javascript">
+var logWanList=new Array(
+"W1 = DHCP : W = 172.19.3.14 : M = 255.255.255.0 : G = 172.19.3.1",
+"Cnt = 5120, Free = 4995, Busy = 125",
+0,0 );
+</script>
+<script type="text/javascript">
+var logInf=new Array(
+"Time = 2014-09-11  9:58:18 6110s",
+"H-Ver = WR845N 3.0 00000000 : S-Ver = 1.0.8 Build 130719 Rel.30455n ",
+"L = 192.168.1.1 : M = 255.255.255.0",
+0,0 );
+</script>
+<META http-equiv="Pragma" content="no-cache">
+<META http-equiv="Expires" content="wed, 26 Feb 1997 08:21:57 GMT">
+<link href="../dynaform/css_main.css" rel="stylesheet" />
+<script src="../dynaform/common.js" type="text/javascript"></script>
+<script type="text/javascript"><!--
+if(window.parent == window){window.location.href="http://192.168.1.1";}
+function Click(){return false;}
+document.oncontextmenu=Click;
+function doPrev(){history.go(-1);}
+//--></script>
+
+<script language="JavaScript" src="../dynaform/custom.js" type="text/JavaScript"></script>
+<script language="Javascript"><!--
+function doSubmit(){
+if(confirm("确认清除所有日志内容吗？")){
+return true;}
+else {return false;}}
+function doClick(){
+location.href="/userRpm/SystemLogRpm.htm";}
+//--></script></head>
+<body><center>
+<form action="SystemLogRpm.htm" enctype="multipart/form-data" method="get" onSubmit="return doSubmit();">
+<table width="640" border="0" cellspacing="0" cellpadding="0">
+<tr><td width="7" class="title"><img src="../userRpm/images/arc.gif" width="7" height="24"></td>
+<td width="633" align="left" valign="middle" class="title">系统日志</td>
+</tr><tr><td colspan="2" align="left">
+<table width="640" border="0" cellspacing="0" cellpadding="0">
+<tr><td class="vline" rowspan="15"><br></td>
+<td width="638">
+<table width="598" border="0" align="center" cellspacing="0" cellpadding="0" class="space">
+	<tr>
+		<td>本页面显示路由器的系统日志。用户可以查看日志，并且可以保存日志内容或将日志内容通过邮件发送。</td>
+	</tr>
+<tr><td height="10"></td></tr>
+<tr style="display:yes;"><td>通过邮件定时发送日志：
+<SCRIPT language="JavaScript">
+	if (syslogWebConf[0] == 0) 
+	{
+		document.write("<b>未启用</b>");
+	}
+	else 
+	{
+		document.write("<b>已启用</b>");
+	}
+</SCRIPT>&nbsp;&nbsp;
+<input name="AutoMail" type="button" class="button" value="邮件发送设置" onClick="location.href='AutoEmailRpm.htm';" onmousewheel=disabled align="left">
+</td></tr>
+<script language="JavaScript">
+var maxRow;
+var i;
+if((logList.length-2)>=1){
+maxRow = logList.length-2;
+document.write('<tr><td width="598" align="center">');
+document.write('<table border="1" align="center" width="598" cellspacing="0" cellpadding="0" class="space">');
+document.write('<TR><TD align="center" width=40>索引</TD>');
+document.write('<TD align="center" width=60>类型</TD>');
+document.write('<TD><p align="left">&nbsp;日&nbsp;志&nbsp;内&nbsp;容</p></TD></TR>');
+for(i = 0; i < maxRow; i++){
+document.write('<TR><TD align="center" width=40>'+(maxRow-i)+'</TD>');
+document.write('<TD align="center" width=60>INFO</TD>');
+document.write('<TD><p align="left">&nbsp;'+logList[maxRow-i-1]+'</p></TD></TR>');
+}}
+if((logExpList.length-2)>=1){
+maxRow = logExpList.length-2;
+for(i = 0;i < maxRow;i++){
+document.write('<TR><TD align="center" width=40>'+'E'+(maxRow-i)+'</TD>');
+document.write('<TD align="center" width=60>DEBUG</TD>');
+document.write('<TD colspan ="2">'+logExpList[maxRow-i-1]+'</TD></TR>');
+}}
+document.write('</table></td></tr>');
+document.write('<tr><td width="598"><table border="0" align="left" cellpadding="0" cellspacing="0" class="space">');
+document.write('<TR><TD colspan=2>&nbsp;' + logInf[0]+'</TD></TR>');
+document.write('<TR><TD colspan=2>&nbsp;' + logInf[1]+'</TD></TR>');
+document.write('<TR><TD colspan=2>&nbsp;' + logInf[2]+'</TD></TR>');
+if((logWanList.length-2)>=1){
+maxRow = logWanList.length-2;
+for(i=0;i<maxRow;i++){
+document.write('<TR><TD colspan="2">&nbsp;' + logWanList[i]+'</TD></TR>');
+}}
+document.write('</table></td></tr>');
+
+</script>
+</table>
+</td><td class="vline" rowspan="15"><br></td></tr>
+<tr><td class="hline"><img src="../userRpm/images/empty.gif" width=1 height="1"></td></tr>
+<tr><td height=30 class="tail">&nbsp;
+<input name="Refresh" type="button" class="button" value="刷 新" onClick="doClick();" align="left">
+&nbsp;<input NAME="DownLoad" type="button" class="button" value="保存所有日志" onClick="location.href='SystemLog.txt';" align="left">
+&nbsp;<input name="doMailLog" type="button" class="button" value="通过邮件发送" onClick="this.disabled = true; location.href='SystemLogRpm.htm?doMailLog=2';" align="left">
+<input name="ClearLog" type="submit" class="button" value="清除所有日志" align="right">
+<input name="help" type="button" class="button" onClick="location.href='/help/SystemLogHelpRpm.htm';" value="帮 助">
+</td></tr><tr><td class="hline"><img src="../userRpm/images/empty.gif" width="1" height="1"></td></tr>
+</table></td></tr></table></form></center>
+</body><head><meta http-equiv="pragma" content="no-cache"></head></html>

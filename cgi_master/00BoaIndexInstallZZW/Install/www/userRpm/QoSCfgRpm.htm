@@ -1,0 +1,266 @@
+<script type="text/javascript">
+var QoSCfgPara=new Array(
+0,
+512,
+2048,
+0,
+0,
+0,
+102400,
+0,0 );
+</script>
+<script type="text/javascript">
+var QoSRuleListArray=new Array(
+0,0 );
+</script>
+<script type="text/javascript">
+var QoSRuleListParam=new Array(
+1,
+1,
+0,
+9,
+8,
+1,
+0,0 );
+</script>
+<META http-equiv="Pragma" content="no-cache">
+<META http-equiv="Expires" content="wed, 26 Feb 1997 08:21:57 GMT">
+<link href="../dynaform/css_main.css" rel="stylesheet" />
+<script src="../dynaform/common.js" type="text/javascript"></script>
+<script type="text/javascript"><!--
+if(window.parent == window){window.location.href="http://192.168.1.1";}
+function Click(){return false;}
+document.oncontextmenu=Click;
+function doPrev(){history.go(-1);}
+//--></script>
+
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<script language="JavaScript">
+<!--
+function doHelp(){location.href="/help/QoSCfgHelpRpm.htm";}
+function checkBandwidth()
+{
+	if(document.forms[0].up_bandWidth.value == "")
+	{
+		document.forms[0].up_bandWidth.value = 0;
+	}
+	if(document.forms[0].down_bandWidth.value == "")
+	{
+		document.forms[0].down_bandWidth.value = 0;
+	}
+	if(!is_number(document.forms[0].down_bandWidth.value))
+	{
+		alert("下行总带宽输入错误，请重新输入！");
+		document.forms[0].down_bandWidth.select();
+		return false;
+	}
+	if(document.forms[0].down_bandWidth.value < QoSCfgPara[3])
+	{
+		alert("下行总带宽不能小于"+QoSCfgPara[3]+"，请重新输入！");
+		document.forms[0].down_bandWidth.select();
+		return false;
+	}
+	if(parseInt(document.forms[0].down_bandWidth.value)>QoSCfgPara[6])
+	{
+		alert("下行总带宽不能大于"+QoSCfgPara[6]+"，请重新输入！");
+		document.forms[0].down_bandWidth.select();
+		return false;
+	}
+
+	if(!is_number(document.forms[0].up_bandWidth.value))
+	{
+		alert("上行总带宽输入错误，请重新输入！");
+		document.forms[0].up_bandWidth.select();
+		return false;
+	}
+	if(document.forms[0].up_bandWidth.value < QoSCfgPara[4])
+	{
+		alert("上行总带宽不能小于"+QoSCfgPara[4]+"，请重新输入！");
+		document.forms[0].up_bandWidth.select();
+		return false;
+	}
+	if(parseInt(document.forms[0].up_bandWidth.value)>QoSCfgPara[6])
+	{
+		alert("上行总带宽不能大于"+QoSCfgPara[6]+"，请重新输入！");
+		document.forms[0].up_bandWidth.select();
+		return false;
+	}
+	
+	return true;
+}
+
+function doSave()
+{
+	var h_url = "QoSCfgRpm.htm?";
+	h_url += "QoSCtrl=";
+	if (document.forms[0].QoSCtrl.checked)
+	{
+		h_url += "1";
+	}
+	else
+	{
+		h_url += "0";
+	}
+	h_url += "&userWanType="+document.forms[0].userWanType.value;
+	// 上下行带宽参数不对
+	if (checkBandwidth() == false)	return false;
+	h_url += "&down_bandWidth="+document.forms[0].down_bandWidth.value;
+	h_url += "&up_bandWidth="+document.forms[0].up_bandWidth.value;	
+	h_url += "&Save="+document.forms[0].Save.value;
+	location.href = h_url;
+	return true;
+}
+
+function doAdd(nPage)
+{
+	location.href="QoSRuleCfgRpm.htm?Add=Add&Page="+nPage;
+}
+function doPage(nPage)
+{
+	location.href="QoSCfgRpm.htm?Page="+nPage;
+}
+function doAll(val)
+{
+	if(val=="DelAll")
+	{
+		if(!confirm("您确认要删除当前所有的条目吗？"))
+		return;
+	}
+	location.href="QoSCfgRpm.htm?DelAll=1";
+}
+/*
+function doHelp()
+{
+	location.href="/help/QoSRuleListHelpRpm.htm";
+}
+*/
+function ResetStatus(strInfo)
+{
+	window.status=strInfo;
+	return true;
+}
+function enableId(id)
+{
+	var enable;
+	if(document.forms[0].elements['enable'+id].checked == true)
+		enable = 1;
+	else
+		enable = 0;
+	location.href = "QoSCfgRpm.htm?enable=" + enable + "&enableId=" + id +"&Page=" + QoSRuleListParam[0];
+}
+
+//-->
+</script>
+</head>
+<body><form action="QoSCfgRpm.htm" enctype="multipart/form-data" method="get"><center>
+<table width="660" border="0" cellspacing="0" cellpadding="0">
+<tr><td width="7" class="title"><img src="../userRpm/images/arc.gif" width="7" height="24"></td>
+<td width="653" align="left" valign="middle" class="title">IP带宽控制</td></tr>
+<tr><td colspan="2"><table width="660" border="0" cellspacing="0" cellpadding="0">
+<tr><td class="vline" rowspan="15"><br></td><td width="658">
+<table width="600" border="0" align="center" cellpadding="0" cellspacing="0" class="space">
+<tr><td colspan='2'>本页对IP带宽控制的开启与关闭进行设置。只有IP带宽控制的总开关为开启时，后续的“IP带宽控制规则”才能够生效；反之，则失效。</td></tr>
+<tr><td colspan='2'>&nbsp;</td></tr>
+<tr><td width='40'>注意：</td></tr>
+<tr><td>&nbsp;</td><td>1、带宽的换算关系为：1Mbps = 1024Kbps；</td></tr>
+<tr><td>&nbsp;</td><td>2、选择宽带线路类型及填写带宽大小时，请根据实际情况进行选择和填写，如不清楚，请咨询您的宽带提供商（如电信、网通等）；</td></tr>
+<tr><td>&nbsp;</td><td>3、修改下面的配置项后，请点击“保存”按钮，使配置项生效。</td></tr>
+</table>
+<center>
+<table border="1" width="600" cellspacing="0" cellpadding="5" class="space">
+<tr><td class="space" colspan=2>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr><td width="21"><input name="QoSCtrl" type="checkbox" value="1"></td><td>&nbsp;开启IP带宽控制</td></tr>
+</table></td></tr>
+<tr><td class="space" colspan=2>
+<table border="0" cellspacing="1" cellpadding="1">
+<tr><td width="150">&nbsp;&nbsp;宽带线路类型：</td>
+<td><select name="userWanType" class="list" style="width:90"><option value="0">ADSL线路</option><option value="1">其它线路</option></select></td></tr>
+<tr valign=bottom><td>&nbsp;&nbsp;上行总带宽：</td><td><input name="up_bandWidth" type="text" value="" size="7" maxlength="7" class="text">&nbsp;Kbps</td></tr>
+<tr valign=bottom><td>&nbsp;&nbsp;下行总带宽：</td><td><input name="down_bandWidth" type="text" value="" size="7" maxlength="7" class="text">&nbsp;Kbps</td></tr>
+<tr><td class="tail" height="30">&nbsp; <input name="Save" type="button" class="button" onclick="doSave();" value="保 存">&nbsp;	
+<!--<input name="Help" type="button" class="button" onClick="doHelp();" value="帮 助">-->
+</td></tr>
+</table></td></tr></table>
+</center>
+</td><td class="vline" rowspan="15"><br></td></tr>
+</table></td></tr></table>
+<table width="660" border="0" cellspacing="0" cellpadding="0">
+<tr><td colspan="2">
+    <table width="660" border="0" cellspacing="0" cellpadding="0">
+    <tr><td class="vline" rowspan="15"><br></td><td width="658">
+<table width="600" border="1" align="center" cellpadding="0" cellspacing="0" class="space">
+<tr align="center"><td rowspan="2" width="20">ID</td>
+<td width="200" rowspan="2">IP地址范围</td>
+<!--<td nowrap rowspan="2" nowrap>模 式</td>-->
+<td nowrap colspan="2" nowrap>上行带宽(Kbps)</td>
+<td nowrap colspan="2" nowrap>下行带宽(Kbps)</td>
+<td rowspan="2" nowrap>启用</td>
+<td width=80 rowspan="2" nowrap>配置</td></tr>
+<tr align="center"><td>最小</td><td>最大</td><td>最小</td><td>最大</td></tr>
+<script language="JavaScript">
+if (QoSRuleListParam[2] > 0)	{
+	var row = 0;
+	var index = (QoSRuleListParam[0]-1)*QoSRuleListParam[4]+1;
+	var modifyId;
+	for(var i = 0; i < QoSRuleListParam[2]; i++, index++)
+	{
+		row = i * QoSRuleListParam[3];
+		modifyId = QoSRuleListArray[row];
+		//var mode = QoSRuleListArray[row+2]?"共享":"独立";
+		var enableStatus = QoSRuleListArray[row+7]?"checked":"";
+		document.write('<tr><td align="center">' + index+ '</td>');//id
+		document.write('<td align="center">' + QoSRuleListArray[row+1] + '</td>');//ip addr
+		//document.write('<td align="center">' + mode + '</td>');//mode		
+		document.write('<td align="center">' + QoSRuleListArray[row+6] + '</td>');//tx min
+		document.write('<td align="center">' + QoSRuleListArray[row+5] + '</td>');//tx max
+		document.write('<td align="center">' + QoSRuleListArray[row+4] + '</td>');//rx min
+		document.write('<td align="center">' + QoSRuleListArray[row+3] + '</td>');//rx max
+		document.write('<td align="center"><input type="checkbox" ' + enableStatus +' name="enable' + modifyId + '" value="1" onClick="enableId(' + modifyId + ');"></td>');
+		document.write('<td align="center"><a href=\"QoSRuleCfgRpm.htm?Modify=' + modifyId
+						+'&Page='+QoSRuleListParam[0] +
+						'\" OnMouseOver=\"return ResetStatus(\'modify\');\">编辑</a>&nbsp;&nbsp;' +
+						'<a href=\"QoSCfgRpm.htm?Del=' + modifyId+'&Page=' + QoSRuleListParam[0] +
+						'\" OnMouseOver=\"return ResetStatus(\'delete\');\">删除</a></td></tr>');
+	}
+}else{
+	document.write('<tr align="center"><td colspan="9">当前列表为空</td></tr>');
+}
+</script>
+</table>
+<table width="600" align="center" border="0" cellpadding="0" cellspacing="0" class="space">
+<tr><td colspan="3" width="468"><input type="button" value="添加新条目" name="Add" class="button" onClick="doAdd(curPage);">&nbsp;<input type="button" value="删除所有条目" name="DelAll" class="button" onClick="doAll('DelAll');"></td></tr>
+</table>
+</td><td class="vline" rowspan="15"><br> </td></tr>
+<tr><td class="hline"><img src="../userRpm/images/empty.gif" width="1" height="1"></td></tr>
+<tr><td height="30" class="tail">&nbsp;&nbsp;<input name="help" type="button" class="button" onClick="doHelp();" value="帮 助">
+</td></tr>
+<tr><td class="hline"><img src="../userRpm/images/empty.gif" width="1" height="1"></td></tr>
+</table></td></tr></table>
+</center>
+</form></body>
+<head><meta http-equiv="pragma" content="no-cache"></head>
+</html>
+<script language="JavaScript"><!--
+document.forms[0].QoSCtrl.checked = QoSCfgPara[0]?true:false;
+document.forms[0].down_bandWidth.value = QoSCfgPara[2];
+document.forms[0].up_bandWidth.value = QoSCfgPara[1];
+if (QoSCfgPara[5] == 0)
+{
+	document.forms[0].userWanType.value = 0;
+}
+else
+{
+	document.forms[0].userWanType.value = 1;
+}
+
+var curPage = QoSRuleListParam[0];
+var prePage = (QoSRuleListParam[0] == 1)?1:QoSRuleListParam[0]-1;
+var NextPage = (QoSRuleListParam[0]<QoSRuleListParam[1])?QoSRuleListParam[0]+1:QoSRuleListParam[1];
+document.forms[0].previous.disabled = (QoSRuleListParam[0] < 2)?true:false;
+document.forms[0].next.disabled = (QoSRuleListParam[0]<QoSRuleListParam[1])?false:true;
+document.forms[0].Page.value = curPage;
+if(QoSRuleListParam[5]==0) document.forms[0].Add.disabled = true;
+if(QoSRuleListParam[2]==0) document.forms[0].DelAll.disabled = true;
+
+--></script>
